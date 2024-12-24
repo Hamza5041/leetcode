@@ -10,8 +10,8 @@ class Solution:
         possibilities.append(self.create_palindrome(n[:i], even))
         possibilities.append(self.create_palindrome(n[:i - 1], even))
         possibilities.append(self.create_palindrome(n[:i + 1], even))
-        possibilities.append(10 ** (len_n - 1) - 1)
-        possibilities.append(10 ** len_n + 1)
+        possibilities.append(str(10 ** (len_n - 1) - 1))
+        possibilities.append(str(10 ** len_n + 1))
 
         closest = ""
         closestLength = float("inf")
@@ -31,7 +31,7 @@ class Solution:
 
         if closest == n:
             return str(int(closest) - 1)
-        return str(closest)
+        return closest
 
     def create_palindrome(self, first_half: str, even: bool) -> str:
         """
@@ -45,7 +45,7 @@ class Solution:
 
 
 if __name__ == '__main__':
-    x = "1001"
+    x = "2"
     test = Solution()
     print(test.nearestPalindromic(x))
 
