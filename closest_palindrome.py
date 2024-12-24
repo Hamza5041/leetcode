@@ -1,6 +1,10 @@
 class Solution:
     def nearestPalindromic(self, n: str):
         len_n = len(n)
+
+        if 0 < len_n < 2:
+            return str(int(n) - 1)
+
         even = (len_n % 2 == 0)
 
         i = (len_n // 2) - 1 if even else len_n // 2
@@ -45,7 +49,7 @@ class Solution:
 
 
 if __name__ == '__main__':
-    x = "2"
+    x = "131"
     test = Solution()
     print(test.nearestPalindromic(x))
 
