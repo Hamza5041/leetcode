@@ -7,13 +7,16 @@ class Solution:
 
         even = (len_n % 2 == 0)
 
-        i = (len_n // 2) - 1 if even else len_n // 2
+        i = len_n // 2 if even else len_n // 2 + 1
+        firstHalf = n[:i]
 
         possibilities = []
-        # Ensure `create_palindrome` is correctly implemented
-        possibilities.append(self.create_palindrome(n[:i], even))
-        possibilities.append(self.create_palindrome(n[:i - 1], even))
-        possibilities.append(self.create_palindrome(n[:i + 1], even))
+        incremented = str(int(firstHalf) + 1)
+        decremented = str(int(firstHalf) - 1)
+        possibilities.append(self.create_palindrome(firstHalf, even))
+        possibilities.append(self.create_palindrome(incremented, even))
+        possibilities.append(self.create_palindrome(decremented, even))
+
         possibilities.append(str(10 ** (len_n - 1) - 1))
         possibilities.append(str(10 ** len_n + 1))
 
@@ -49,7 +52,7 @@ class Solution:
 
 
 if __name__ == '__main__':
-    x = "131"
+    x = "1001"
     test = Solution()
     print(test.nearestPalindromic(x))
 
