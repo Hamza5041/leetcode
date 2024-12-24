@@ -22,6 +22,9 @@ class Solution:
             if difference < closestLength:
                 closest = pos
                 closestLength = difference
+            elif difference == closestLength:
+                closest = pos if intPos < int(closest) else closest
+
 
         if closest == n:
             return str(int(closest) - 1)
@@ -39,7 +42,7 @@ class Solution:
 
 
 if __name__ == '__main__':
-    x = "1"
+    x = "10"
     test = Solution()
     print(test.nearestPalindromic(x))
 
