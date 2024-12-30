@@ -9,8 +9,8 @@ class Solution:
         merged = [intervals[0]]
         for i in range(1, len(intervals)):
             print(i)
-            if intervals[i][0] < merged[-1][1]:
-                merged[-1][1] = intervals[i][1]
+            if intervals[i][0] <= merged[-1][1]:
+                merged[-1][1] = max(merged[-1][1], intervals[i][1])
             else:
                 merged.append(intervals[i])
         return merged
@@ -21,8 +21,8 @@ class Solution:
 
 
 if __name__ == '__main__':
-    intervals = [[1,3],[2,6],[8,10],[15,18]]
-    expected = [[1,6],[8,10],[15,18]]
+    intervals = [[1,4],[2,3]]
+    expected = [[1,4]]
 
     result = Solution().merge(intervals)
     print("\nresult: " + str(result) + "\n" + "Expected: " + str(expected))
